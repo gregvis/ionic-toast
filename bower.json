@@ -1,8 +1,8 @@
 {
-  "name": "ionic-toast",
+  "name": "ionic-toast-gregvis",
   "version": "0.4.1",
   "authors": [
-    "rajeshwarpatlolla <rajeshwar.patlolla@gmail.com>"
+    "gregvis"
   ],
   "description": "'ionic-toast' bower component for ionic framework applications",
   "main": [
@@ -16,7 +16,6 @@
     "toast for ionic framework"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/rajeshwarpatlolla/ionic-toast",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -25,6 +24,5 @@
     "tests"
   ],
   "dependencies": {
-    "ionic": ">=0.9.27"
   }
 }
