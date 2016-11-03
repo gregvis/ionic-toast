@@ -32,6 +32,10 @@
   bottom: 10px;
 }
 
+.ionic_toast_error {
+  background-color: firebrick
+}
+
 .ionic_toast_close {
   border-radius: 2px;
   color: #CCCCCC;
