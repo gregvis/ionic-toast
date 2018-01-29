@@ -21,6 +21,7 @@ angular.module('ionic-toast.provider', [])
         var provider = {};
         var $scope = $rootScope.$new();
         var toastTimer = defaultConfig.timeOut;
+        var toastClick = function(){};
 
         var defaultScope = {
           toastClass: '',
@@ -57,17 +58,24 @@ angular.module('ionic-toast.provider', [])
           });
         };
 
-        provider.showError = function(message, position, isSticky, duration){
-          provider.show(message, position, isSticky, duration, 'ionic_toast_error');
+        $scope.toastClick = function () {
+          toastClick();
+          $scope.hideToast();
         }
 
-        provider.show = function (message, position, isSticky, duration, cssClass) {
+        provider.showError = function(message, position, isSticky, duration, toastClickFn){
+          provider.show(message, position, isSticky, duration, 'ionic_toast_error', toastClickFn);
+        }
+
+        provider.show = function (message, position, isSticky, duration, cssClass, toastClickFn) {
 
           if (!message) return;
           position = position || defaultConfig.position;
           duration = duration || defaultConfig.timeOut;
 
           if (duration > 10000) duration = 10000;
+
+          toastClick = toastClickFn || function(){}
 
           angular.extend($scope.ionicToast, {
             toastClass: toastPosition[position] + ' ' + (isSticky ? 'ionic_toast_sticky' : '') + ' ' + cssClass,
